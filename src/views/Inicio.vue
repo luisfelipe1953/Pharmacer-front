@@ -21,7 +21,7 @@
   <div>
     <div class="min-h-[600px]">
       <img
-        src="../../header.jpg"
+        src="../assets/img/header.jpg"
         alt="header"
         class="object-cover w-full absolute h-[600px] z-0"
       />

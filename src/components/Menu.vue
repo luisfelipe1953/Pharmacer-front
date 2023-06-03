@@ -11,7 +11,7 @@
         </button>
       </div>
       <a  href="/" class="flex justify-center">
-        <img  :class="[collapsed ? 'w-12' : 'w-40']" src="../../farmacia.png" alt="logo">
+        <img  :class="[collapsed ? 'w-12' : 'w-40']" src="../assets/img/farmacia.png" alt="logo">
       </a>
       <div>
         <RouterLink

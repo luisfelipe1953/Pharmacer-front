@@ -2,7 +2,7 @@
   <div>
     <div class="bg-gray-50 text-black fixed top-0 right-0 z-20 sm:w-[350px] w-[120px]">
       <div class="sm:flex justify-center block w-24 my-5 mx-5 sm:my-20 sm:mx-32">
-        <img src="../../farmacias.png" alt="logo" />
+        <img src="../assets/img/farmacias.png" alt="logo" />
         <h1 class="text-center sm:mt-10 sm:text-2xl text-sm sm:ml-5 underline decoration-sky-500">FARMACIAS</h1>
       </div>
       <div class="overflow-y-auto max-h-[740px] sm:max-h-[calc(100vh-200px)]">
