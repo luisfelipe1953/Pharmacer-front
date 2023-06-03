@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div id="mapContainer" class="fixed w-screen h-screen sm:h-[calc(100vw-50px)]"></div>
+    <div
+      id="mapContainer"
+      class="fixed w-screen h-screen sm:h-[calc(100vw-50px)]"
+    ></div>
   </div>
 </template>
 
@@ -49,7 +52,7 @@ export default defineComponent({
       const zoom = 8;
 
       map = L.map("mapContainer").setView([lat, long], zoom);
-      L.tileLayer("https:tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution:
           '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
       }).addTo(map);
@@ -105,5 +108,4 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-
 </style>
