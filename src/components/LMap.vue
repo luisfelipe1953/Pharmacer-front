@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div id="mapContainer"></div>
+    <div id="mapContainer" class="fixed w-screen h-screen sm:h-[calc(100vw-50px)]"></div>
   </div>
 </template>
 
@@ -105,9 +105,5 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-#mapContainer {
-  position: fixed;
-  width: 100vw;
-  height: calc(100vw - 50px);
-}
+
 </style>

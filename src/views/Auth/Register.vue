@@ -15,7 +15,7 @@ const data = reactive({
 <template>
   <form
     @submit.prevent="register(data)"
-    class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md"
+    class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md container-md"
   >
     <h1 class="h3 mb-3 fw-normal">Porfavor Registrese</h1>
 

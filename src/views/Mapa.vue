@@ -1,37 +1,64 @@
 <template>
   <div>
-    <div class="bg-gray-50 text-black fixed top-0 right-0 z-20 sm:w-[350px] w-[200px] shadow-xl">
-      <div class="flex justify-center w-24 my-20 mx-32">
-        <img src="../../farmacias.png" alt="logo" />
-        <h1 class="text-center mt-10 text-2xl underline decoration-sky-500">FARMACIAS</h1>
-      </div>
-      <div class="overflow-y-auto max-h-[720px]">
-        <div v-for="pharmacy in pharmacies" :key="pharmacy.id" class="relative animation animation-hover" @click="(event) => selectPharmacy(pharmacy, event)">
-          <h1>{{ pharmacy.name }}</h1>
-          <p>{{ pharmacy.address }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="window hover:cursor-pointer" @mousedown="startDrag" @mousemove="drag" @mouseup="stopDrag">
-      <form class="space-y-6 max-w-md mx-auto p-4 bg-white shadow-xl rounded-md absolute z-30 right-0" @submit.prevent="getNeartPharmacies(form)">
+    <div
+      class="window hover:cursor-pointer"
+      @mousedown="startDrag"
+      @mousemove="drag"
+      @mouseup="stopDrag"
+      @touchstart="startDrag"
+      @touchend="stopDrag"
+      @touchmove="drag"
+    >
+      <form
+        class="space-y-6 max-w-md mx-auto p-4 bg-white shadow-xl rounded-md absolute z-30 right-0"
+        @submit.prevent="getNeartPharmacies(form)"
+      >
         <h1 class="text-center">Farmacias Sercanas</h1>
         <div v-if="errors">
           <span class="text-base text-red-400">{{ errors.data }}</span>
         </div>
         <div class="mb-6">
-          <label for="latitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">latitude</label>
-          <input type="text" id="latitude" v-model="form.latitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="latitude" />
+          <label
+            for="latitude"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >latitude</label
+          >
+          <input
+            type="text"
+            id="latitude"
+            v-model="form.latitude"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="latitude"
+          />
         </div>
         <div class="mb-6">
-          <label for="longitude" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">longitude</label>
-          <input type="text" id="longitude" v-model="form.longitude" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="longitude" />
+          <label
+            for="longitude"
+            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            >longitude</label
+          >
+          <input
+            type="text"
+            id="longitude"
+            v-model="form.longitude"
+            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="longitude"
+          />
         </div>
-        <button type="submit" class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white">buscar</button>
+        <button
+          type="submit"
+          class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white"
+        >
+          buscar
+        </button>
       </form>
     </div>
 
-    <l-map v-if="!loading" :markers="markerpharmacy" :pharmacies="pharmacies"></l-map>
+    <l-map
+      v-if="!loading"
+      :markers="markerpharmacy"
+      :pharmacies="pharmacies"
+    ></l-map>
 
     <PharmaciesList @pharmacy-selected="handlePharmacySelected" />
   </div>
@@ -128,6 +155,6 @@ export default defineComponent({
 
 <style scoped>
 .window {
-  @apply absolute w-80 h-52 right-[50rem] p-5 border-4 border-gray-200
+  @apply absolute sm:w-80 w-32 sm:h-52 h-16 sm:right-[50rem] right-32 p-5 border-4 border-gray-200;
 }
 </style>

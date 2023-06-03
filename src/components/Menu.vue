@@ -10,7 +10,7 @@
           />
         </button>
       </div>
-      <a  href="/inicio" class="flex justify-center">
+      <a  href="/" class="flex justify-center">
         <img  :class="[collapsed ? 'w-12' : 'w-40']" src="../../farmacia.png" alt="logo">
       </a>
       <div>
@@ -35,7 +35,7 @@
         <div
           v-if="!auth"
           :class="[
-            'mt-[530px]',
+              [collapsed ? 'sm:mt-[530px] mt-[480px]' : 'sm:mt-[530px] mt-[480px]'],
             'justify-center',
             { block: collapsed, flex: !collapsed },
           ]"
@@ -45,12 +45,12 @@
             to="/login"
           >
             <div
-              class="flex sm:flex-none flex-1 justify-center items-center w-[80px]"
+              class="flex sm:flex-none flex-1 justify-center items-center sm:w-[80px] w-[40px]"
             >
               <font-awesome-icon :icon="['fa-solid', 'fa-lock']" size="2x" />
             </div>
             <a
-              class="flex px-1 py-3 text-center relative justify-center text-base sm:text-xl"
+              class="flex px-1 py-3 text-center relative justify-center text-xs sm:text-xl"
               v-if="!collapsed"
             >
               Login
@@ -60,11 +60,11 @@
             class="flex justify-center px-2 py-3 relative items-center animation animation-hover"
             to="/register"
           >
-            <div class="flex sm:flex-none flex-1 justify-center w-[80px]">
+            <div class="flex sm:flex-none flex-1 justify-center sm:w-[80px] w-[40px]">
               <font-awesome-icon :icon="['fa-solid', 'fa-user']" size="2x" />
             </div>
             <a
-              class="flex p-2 relative justify-center text-base sm:text-xl"
+              class="flex p-2 relative justify-center text-xs sm:text-xl"
               v-if="!collapsed"
             >
               Register
@@ -76,7 +76,7 @@
             class="flex justify-center p-3 relative animation animation-hover"
             to="/pharmacy"
           >
-            <div class="flex sm:flex-none flex-1 justify-center w-[80px]">
+            <div class="flex sm:flex-none flex-1 justify-center items-center w-[80px]">
               <font-awesome-icon
                 :icon="['fa-solid', 'fa-location-dot']"
                 size="2x"
@@ -91,9 +91,9 @@
           </RouterLink>
 
           <div
-            class="mt-[610px] flex justify-center p-3 relative animation animation-hover"
+            :class="[collapsed ? 'sm:mt-[642px] mt-[550px]' : 'sm:mt-[422px] mt-[390px]']"  class=" flex justify-center p-3 relative animation animation-hover"
           >
-            <div class="flex sm:flex-none flex-1 justify-center w-[80px]">
+            <div class="flex sm:flex-none flex-1 justify-center items-center w-[80px]">
               <font-awesome-icon
                 :icon="['fa-solid', 'right-from-bracket']"
                 size="2x"
@@ -122,11 +122,11 @@ import useAuth from "../composables/auth.js";
 export default {
   setup() {
     const store = useStore();
-    const collapsed = ref(false);
+    const collapsed = ref(true);
     const { logout } = useAuth();
 
     const links = [
-      { to: "/inicio", text: "Inicio", icon: "fa-house" },
+      { to: "/", text: "Inicio", icon: "fa-house" },
       { to: "/mapa", text: "Mapa", icon: "fa-map" },
     ];
 

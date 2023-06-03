@@ -35,15 +35,10 @@ const router = createRouter({
       props: true, // Pasa el parámetro id como una propiedad
     },
     {
-      path: '/inicio',
+      path: '/',
       name: 'inicio',
       component: () => import('../views/Inicio.vue')
     },
-    {
-      path: '/',
-      name: 'Home',
-      component: () => import('../views/Home.vue')
-    }
   ]
 })
 

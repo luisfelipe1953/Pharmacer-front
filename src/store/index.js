@@ -1,4 +1,5 @@
 import { createStore } from "vuex";
+import VuexPersistence from "vuex-persist";
 import { useRouter } from "vue-router";
 
 export default createStore({
@@ -16,4 +17,9 @@ export default createStore({
     },
   },
   modules: {},
+  plugins: [
+    new VuexPersistence({
+      storage: window.localStorage
+    }).plugin
+  ]
 });

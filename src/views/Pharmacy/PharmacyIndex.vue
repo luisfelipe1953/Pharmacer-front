@@ -8,11 +8,11 @@ onMounted(() => getPharmacies());
 </script>
 
 <template>
-  <div class="mt-10 max-w-[900px] mx-auto min-h-screen">
+  <div class="mt-10 max-w-[900px] mx-auto min-h-screen container-md">
     <div class="flex justify-end m-2 p-2">
       <RouterLink
         :to="{ name: 'PharmacyCreate' }"
-        class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white"
+        class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white overflow-auto"
       >
         New pharmacy
       </RouterLink>

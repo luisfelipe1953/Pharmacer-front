@@ -15,3 +15,7 @@ h5,
 h6 {
     font-family: 'Averia Serif Libre', sans-serif;
 }
+
+.container-md{
+    @apply w-[65%] mx-auto
+}

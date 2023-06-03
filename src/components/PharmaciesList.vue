@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="bg-gray-50 text-black fixed top-0 right-0 z-20 sm:w-[350px] w-[200px] shadow-xl">
-      <div class="flex justify-center w-24 my-20 mx-32">
+    <div class="bg-gray-50 text-black fixed top-0 right-0 z-20 sm:w-[350px] w-[120px]">
+      <div class="sm:flex justify-center block w-24 my-5 mx-5 sm:my-20 sm:mx-32">
         <img src="../../farmacias.png" alt="logo" />
-        <h1 class="text-center mt-10 text-2xl underline decoration-sky-500">FARMACIAS</h1>
+        <h1 class="text-center sm:mt-10 sm:text-2xl text-sm sm:ml-5 underline decoration-sky-500">FARMACIAS</h1>
       </div>
-      <div class="overflow-y-auto max-h-[720px]">
-        <div v-for="pharmacy in pharmacies" :key="pharmacy.id" class="relative animation animation-hover p-5" @click="selectPharmacy(pharmacy)">
-          <h1>{{ pharmacy.name }}</h1>
-          <p>{{ pharmacy.address }}</p>
+      <div class="overflow-y-auto max-h-[740px] sm:max-h-[calc(100vh-200px)]">
+        <div v-for="pharmacy in pharmacies" :key="pharmacy.id" class="relative animation animation-hover p-2 sm:p-5" @click="selectPharmacy(pharmacy)">
+          <h1 class="text-xs sm:text-base">{{ pharmacy.name }}</h1>
+          <p class="text-xs sm:text-sm">{{ pharmacy.address }}</p>
         </div>
       </div>
     </div>

@@ -27,25 +27,22 @@
       />
       <a
         href="/mapa"
-        class="absolute right-[95rem] top-1/3"
+        class="absolute sm:right-[95rem] sm:top-1/3 right-[20rem] top-[30rem]"
       >
-        <h1 class="text-8xl absolute text-white hover:text-green-600">
+        <h1 class="sm:text-8xl text-5xl absolute text-white hover:text-green-600">
           Pharmacer -//>
           <font-awesome-icon :icon="['fa-solid', 'fa-map']" size="1x" />
         </h1>
       </a>
     </div>
     <div class="max-w-6xl mx-auto mt-10">
-      <h1 class="text-xl my-20">Hola bienvenido a la farmacia pharmacer</h1>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis in
-        placeat ipsam asperiores odit quaerat aliquid dolore suscipit voluptate
-        corrupti aut, voluptas magni quas quasi? Corporis pariatur harum
-        adipisci illum.
+      <h1 class="text-xl my-20 sm:ml-0 ml-20">Hola bienvenido a la farmacia pharmacer</h1>
+      <p class="sm:ml-0 ml-20  my-10">
+        -busca tu farmacia mas sercana en el mapa, o mira donde estan ubicadas todas las farmacias de pharmacer
       </p>
 
-      <h1>
-        desea reclamar sus medicamentos? si es asi dele al boton buscar farmacia
+      <h1 class="sm:ml-0 ml-20  my-10">
+        -desea reclamar sus medicamentos? si es asi dele al boton buscar farmacia
         mas sercana
       </h1>
 

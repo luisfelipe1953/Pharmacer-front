@@ -59,7 +59,7 @@ export default function useAuth() {
 
       await store.dispatch("setAuth", false);
 
-      await router.push("/inicio");
+      await router.push("/");
     } catch (error) {
       if (error.response.status === 422) {
         errors.value = error.response.data;

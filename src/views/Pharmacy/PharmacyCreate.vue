@@ -15,11 +15,17 @@ const form = reactive({
 <template>
   <div class="mt-12">
     <form
-      class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md"
+      class="max-w-md sm:mx-auto p-4 bg-white shadow-md rounded-md container-md"
       @submit.prevent="storePharmacy(form)"
     >
       <div class="space-y-6">
         <h1>Nueva Farmacia</h1>
+        <RouterLink
+          :to="{ name: 'PharmacyIndex' }"
+          class="sm:ml-80 ml-40 px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white"
+        >
+          volver
+        </RouterLink>
         <div v-if="errors">
           <span class="text-base text-red-400">{{ errors.data }}</span>
         </div>
@@ -49,7 +55,7 @@ const form = reactive({
             id="address"
             v-model="form.address"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="name"
+            placeholder="address"
           />
         </div>
         <div class="mb-6">
@@ -63,7 +69,7 @@ const form = reactive({
             id="latitude"
             v-model="form.latitude"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="note"
+            placeholder="latitud"
           />
         </div>
         <div class="mb-6">
@@ -77,7 +83,7 @@ const form = reactive({
             id="longitude"
             v-model="form.longitude"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="note"
+            placeholder="longitude"
           />
         </div>
 

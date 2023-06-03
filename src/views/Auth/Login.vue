@@ -13,7 +13,7 @@ const data = reactive({
 <template>
   <form
     @submit.prevent="login(data)"
-    class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md"
+    class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md container-md"
   >
     <div class="space-y-6">
       <h1 class="">Porfavor Inicia Session</h1>

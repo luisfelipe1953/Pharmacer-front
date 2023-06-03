@@ -1,8 +1,8 @@
 <script setup>
-import { onMounted, defineProps  } from "vue";
+import { onMounted, defineProps } from "vue";
 import usePharmacy from "../../composables/index.js";
 
-const { getPharmacy,pharmacy, updatePharmacy, errors } = usePharmacy();
+const { getPharmacy, pharmacy, updatePharmacy, errors } = usePharmacy();
 
 const props = defineProps({
   id: {
@@ -12,17 +12,25 @@ const props = defineProps({
 });
 
 onMounted(() => getPharmacy(props.id));
-
 </script>
 
 <template>
   <div class="mt-12">
     <form
-      class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md"
+      class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md container-md"
       @submit.prevent="updatePharmacy($route.params.id)"
     >
       <div class="space-y-6">
         <h1>Actualizar Farmacia</h1>
+        <RouterLink
+          :to="{ name: 'PharmacyIndex' }"
+          class="sm:ml-80 ml-40 px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white"
+        >
+          volver
+        </RouterLink>
+        <div v-if="errors">
+          <span class="text-base text-red-400">{{ errors.data }}</span>
+        </div>
         <div class="mb-6">
           <label
             for="name"
