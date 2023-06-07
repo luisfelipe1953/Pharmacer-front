@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 html {
-    font-family: 'Averia Serif Libre', sans-serif;
-
+    font-family: 'Roboto Mono', monospace;
 }
 
 h1,
@@ -13,9 +12,18 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Averia Serif Libre', sans-serif;
+    font-family: 'Roboto Mono', monospace;
 }
 
 .container-md{
     @apply w-[65%] mx-auto
+}
+.alerta-error {
+    @apply pl-[30px] pr-[15px] py-[15px] uppercase m-0 text-xs
+    font-bold bg-red-200 border-l-8 border-red-800
+
+  }
+
+.shadow-black {
+    box-shadow: rgba(0, 0, 0) 0px 0px 0px 2px, rgb(0, 0, 0) 0px 4px 6px -1px, rgba(0, 0, 0) 0px 1px 0px inset;
 }

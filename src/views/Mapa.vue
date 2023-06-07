@@ -10,12 +10,12 @@
       @touchmove="drag"
     >
       <form
-        class="space-y-6 max-w-md mx-auto p-4 bg-white shadow-xl rounded-md absolute z-30 right-0"
+        class="space-y-6 max-w-md mx-auto p-4 bg-white shadow-black rounded-md container-md absolute z-30 right-0"
         @submit.prevent="getNeartPharmacies(form)"
       >
-        <h1 class="text-center">Farmacias Sercanas</h1>
-        <div v-if="errors">
-          <span class="text-base text-red-400">{{ errors.data }}</span>
+        <h1 class="text-center">Farmacias Cercanas</h1>
+        <div v-if="errors.data">
+          <span class="alerta-error">{{ errors.data }}</span>
         </div>
         <div class="mb-6">
           <label
@@ -47,7 +47,7 @@
         </div>
         <button
           type="submit"
-          class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white"
+          class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white shadow-black"
         >
           buscar
         </button>
@@ -88,7 +88,7 @@ onMounted(() => {
 const markerPharmacy = async () => {
   try {
     loading.value = true;
-    const { data } = await axios.get("https://pharmacy-map.fly.dev/api/pharmacies");
+    const { data } = await axios.get("http://127.0.0.1:8000/api/pharmacies");
     markerpharmacy.value = data.pharmacies.map((pharmacy) => {
       return {
         id: pharmacy.id,
@@ -155,6 +155,6 @@ export default defineComponent({
 
 <style scoped>
 .window {
-  @apply absolute sm:w-80 w-32 sm:h-52 h-16 sm:right-[50rem] right-32 p-5 border-4 border-gray-200;
+  @apply absolute sm:w-80 w-60 sm:h-52 h-10 sm:right-[50rem] right-40 p-5 border-4 border-gray-200;
 }
 </style>

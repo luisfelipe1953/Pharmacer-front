@@ -2,13 +2,14 @@ import { ref } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
 
-axios.defaults.baseURL = "https://pharmacy-map.fly.dev/api/";
+axios.defaults.baseURL = "http://127.0.0.1:8000/api/";
 
 export default function usePharmacy() {
   const pharmacy = ref([]);
   const pharmacies = ref([]);
   const errors = ref({});
   const router = useRouter();
+  const token = localStorage.getItem("token")
 
   const getPharmacies = async () => {
     const response = await axios.get("pharmacies");
@@ -22,10 +23,13 @@ export default function usePharmacy() {
 
   const storePharmacy = async (data) => {
     try {
-      const response = await axios.post("pharmacies", data);
+      const response = await axios.post("pharmacies", data, {
+        headers: { 
+          "Authorization": "bearer" + token
+        }
+      });
       await router.push({ name: "PharmacyIndex" });
     } catch (error) {
-      console.log(error.response);
       if (error.response.status === 422) {
         errors.value = error.response;
       }
@@ -34,12 +38,15 @@ export default function usePharmacy() {
 
   const updatePharmacy = async (id) => {
     try {
-      await axios.put("pharmacies/" + id, pharmacy.value);
+      await axios.put("pharmacies/" + id, pharmacy.value, {
+        headers: { 
+          "Authorization": "bearer" + token
+        }
+      });
       await router.push({ name: "PharmacyIndex" });
     } catch (error) {
-      console.log(error.response);
       if (error.response.status === 422) {
-        errors.value = error.response.data;
+        errors.value = error.response;
       }
     }
   };
@@ -48,13 +55,17 @@ export default function usePharmacy() {
     if (!window.confirm("Are you sure you want to destroy")) {
       return;
     }
-    await axios.delete("pharmacies/" + id);
+    await axios.delete("pharmacies/" + id, {
+      headers: { 
+        "Authorization": "bearer" + token
+      }
+    });
     await getPharmacies();
   };
 
   const getNeartPharmacies = async (form) => {
     try {
-      const response = await axios.post("pharmacies/nearby", form);
+      const response = await axios.post("pharmacy-nearby", form);
       pharmacies.value = response.data;
     } catch (error) {
       if (error.response.status === 422) {

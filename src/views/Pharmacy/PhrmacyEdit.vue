@@ -17,19 +17,19 @@ onMounted(() => getPharmacy(props.id));
 <template>
   <div class="mt-12">
     <form
-      class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md container-md"
+      class="max-w-md mx-auto p-4 bg-white shadow-black rounded-md container-md mt-40"
       @submit.prevent="updatePharmacy($route.params.id)"
     >
       <div class="space-y-6">
         <h1>Actualizar Farmacia</h1>
         <RouterLink
           :to="{ name: 'PharmacyIndex' }"
-          class="sm:ml-80 ml-40 px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white"
+          class="sm:ml-80 ml-40 px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white shadow-black"
         >
           volver
         </RouterLink>
-        <div v-if="errors">
-          <span class="text-base text-red-400">{{ errors.data }}</span>
+          <div v-if="errors.data">
+          <span class="alerta-error">{{ errors.data }}</span>
         </div>
         <div class="mb-6">
           <label
@@ -60,7 +60,7 @@ onMounted(() => getPharmacy(props.id));
             id="address"
             v-model="pharmacy.address"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="name"
+            placeholder="address"
           />
           <div v-if="errors.address">
             <span class="text-base text-red-400">{{ errors.address[0] }}</span>
@@ -77,7 +77,7 @@ onMounted(() => getPharmacy(props.id));
             id="latitude"
             v-model="pharmacy.latitude"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="note"
+            placeholder="latitud"
           />
           <div v-if="errors.latitude">
             <span class="text-base text-red-400">{{ errors.latitude[0] }}</span>
@@ -94,7 +94,7 @@ onMounted(() => getPharmacy(props.id));
             id="longitude"
             v-model="pharmacy.longitude"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="note"
+            placeholder="longitude"
           />
           <div v-if="errors.longitude">
             <span class="text-base text-red-400">{{
@@ -105,7 +105,7 @@ onMounted(() => getPharmacy(props.id));
 
         <button
           type="submit"
-          class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white"
+          class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white shadow-black"
         >
           actualizar
         </button>

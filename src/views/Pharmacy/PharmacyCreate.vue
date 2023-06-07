@@ -15,19 +15,19 @@ const form = reactive({
 <template>
   <div class="mt-12">
     <form
-      class="max-w-md sm:mx-auto p-4 bg-white shadow-md rounded-md container-md"
+      class="max-w-md sm:mx-auto p-4 bg-white shadow-black rounded-md container-md mt-40"
       @submit.prevent="storePharmacy(form)"
     >
       <div class="space-y-6">
         <h1>Nueva Farmacia</h1>
         <RouterLink
           :to="{ name: 'PharmacyIndex' }"
-          class="sm:ml-80 ml-40 px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white"
+          class="sm:ml-80 ml-40 px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white shadow-black"
         >
           volver
         </RouterLink>
-        <div v-if="errors">
-          <span class="text-base text-red-400">{{ errors.data }}</span>
+        <div v-if="errors.data">
+          <span class="alerta-error">{{ errors.data }}</span>
         </div>
         <div class="mb-6">
           <label
@@ -89,7 +89,7 @@ const form = reactive({
 
         <button
           type="submit"
-          class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white"
+          class="px-4 py-2 mr-4 bg-green-600 hover:bg-green-800 rounded text-white shadow-black"
         >
           guardar
         </button>

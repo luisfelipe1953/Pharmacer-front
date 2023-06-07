@@ -3,7 +3,7 @@ import store from '../store'; // Importa el módulo de autenticación o autoriza
 
 const isAuthenticated = (to, from, next) => {
   // Comprueba si el usuario está autenticado (puedes ajustar la lógica según tu implementación)
-  if (store.getters.isAuthenticated) {
+  if (store.state.authenticated) {
     // Usuario autenticado, permite el acceso a la ruta
     next();
   } else {

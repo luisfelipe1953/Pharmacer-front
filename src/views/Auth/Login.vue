@@ -13,19 +13,19 @@ const data = reactive({
 <template>
   <form
     @submit.prevent="login(data)"
-    class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md container-md"
+    class="max-w-md mx-auto p-4 bg-white shadow-black rounded-md container-md mt-40"
   >
     <div class="space-y-6">
       <h1 class="">Porfavor Inicia Session</h1>
 
-      <div v-if="errors">
-        <span class="text-base text-red-400">{{ errors.error }}</span>
+      <div v-if="errors.error">
+        <span class="alerta-error">{{ errors.error }}</span>
       </div>
       <div v-if="errors.email">
-        <span class="text-base text-red-400">{{ errors.email[0] }}</span>
+        <span class="alerta-error">{{ errors.email[0] }}</span>
       </div>
       <div v-if="errors.password">
-        <span class="text-base text-red-400">{{ errors.password[0] }}</span>
+        <span class="alerta-error">{{ errors.password[0] }}</span>
       </div>
       <label
         for="name"

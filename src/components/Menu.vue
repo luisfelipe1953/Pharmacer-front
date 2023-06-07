@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div :class="['menu', collapsed ? 'collapsed' : 'expanded']">
+    <div
+      :class="['menu', collapsed ? 'collapsed' : 'expanded']"
+      class="shadow-black"
+    >
       <div class="flex justify-end">
         <button class="p-3 mr-0 sm:mr-3" @click="toggleCollapsed">
           <font-awesome-icon
@@ -10,8 +13,12 @@
           />
         </button>
       </div>
-      <a  href="/" class="flex justify-center">
-        <img  :class="[collapsed ? 'w-12' : 'w-40']" src="../assets/img/farmacia.png" alt="logo">
+      <a href="/" class="flex justify-center mb-10">
+        <img
+          :class="[collapsed ? 'w-12' : 'w-40']"
+          src="../assets/img/farmacia.png"
+          alt="logo"
+        />
       </a>
       <div>
         <RouterLink
@@ -32,39 +39,34 @@
             {{ link.text }}
           </a>
         </RouterLink>
-        <div
-          v-if="!auth"
-          :class="[
-              [collapsed ? 'sm:mt-[530px] mt-[480px]' : 'sm:mt-[530px] mt-[480px]'],
-            'justify-center',
-            { block: collapsed, flex: !collapsed },
-          ]"
-        >
+        <div v-if="!auth">
           <RouterLink
             class="flex justify-center p-3 relative animation animation-hover"
             to="/login"
           >
             <div
-              class="flex sm:flex-none flex-1 justify-center items-center sm:w-[80px] w-[40px]"
+              class="flex sm:flex-none flex-1 items-center justify-center w-[80px]"
             >
               <font-awesome-icon :icon="['fa-solid', 'fa-lock']" size="2x" />
             </div>
             <a
-              class="flex px-1 py-3 text-center relative justify-center text-xs sm:text-xl"
+              class="flex p-3 relative justify-center items-end w-[80px] text-base sm:text-xl"
               v-if="!collapsed"
             >
               Login
             </a>
           </RouterLink>
           <RouterLink
-            class="flex justify-center px-2 py-3 relative items-center animation animation-hover"
+            class="flex justify-center p-3 relative animation animation-hover"
             to="/register"
           >
-            <div class="flex sm:flex-none flex-1 justify-center sm:w-[80px] w-[40px]">
+            <div
+              class="flex sm:flex-none flex-1 items-center justify-center w-[80px]"
+            >
               <font-awesome-icon :icon="['fa-solid', 'fa-user']" size="2x" />
             </div>
             <a
-              class="flex p-2 relative justify-center text-xs sm:text-xl"
+              class="flex p-3 relative justify-center items-end w-[80px] text-base sm:text-xl"
               v-if="!collapsed"
             >
               Register
@@ -73,10 +75,12 @@
         </div>
         <div v-else>
           <RouterLink
-            class="flex justify-center p-3 relative animation animation-hover"
+            class="flex justify-center p-2 relative animation animation-hover"
             to="/pharmacy"
           >
-            <div class="flex sm:flex-none flex-1 justify-center items-center w-[80px]">
+            <div
+              class="flex sm:flex-none flex-1 justify-center items-center w-[80px]"
+            >
               <font-awesome-icon
                 :icon="['fa-solid', 'fa-location-dot']"
                 size="2x"
@@ -91,9 +95,12 @@
           </RouterLink>
 
           <div
-            :class="[collapsed ? 'sm:mt-[642px] mt-[550px]' : 'sm:mt-[422px] mt-[390px]']"  class=" flex justify-center p-3 relative animation animation-hover"
+            class="flex justify-center p-3 relative animation animation-hover"
+            @click="logout"
           >
-            <div class="flex sm:flex-none flex-1 justify-center items-center w-[80px]">
+            <div
+              class="flex sm:flex-none flex-1 justify-center items-center w-[80px]"
+            >
               <font-awesome-icon
                 :icon="['fa-solid', 'right-from-bracket']"
                 size="2x"
@@ -102,7 +109,6 @@
             <a
               v-if="!collapsed"
               class="flex p-3 relative justify-center items-end w-[80px] text-base sm:text-xl"
-              @click="logout"
             >
               Logout
             </a>
@@ -149,7 +155,7 @@ export default {
 
 <style scoped>
 .menu {
-  @apply bg-gray-50 text-black h-[120rem] transition-[width] ease-in-out duration-300 fixed top-0 left-0 z-20;
+  @apply bg-gray-50 text-black h-[120rem] transition-[width] ease-in-out duration-300 fixed top-0 left-0 z-20 rounded-md;
 }
 
 .collapsed {

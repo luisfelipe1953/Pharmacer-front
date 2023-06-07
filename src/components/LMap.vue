@@ -65,7 +65,7 @@ export default defineComponent({
     const setMarkers = () => {
       props.markers.forEach((marker) => {
         const customIcon = L.icon({
-          iconUrl: "/pin.png", // Ruta de la imagen del ícono personalizado
+          iconUrl: "./pin.png", // Ruta de la imagen del ícono personalizado
           iconSize: [32, 32], // Tamaño del ícono [ancho, alto]
           iconAnchor: [16, 32], // Punto de anclaje del ícono [posiciónX, posiciónY]
         });
@@ -84,7 +84,7 @@ export default defineComponent({
           const target = L.latLng(pharmacy.latitude, pharmacy.longitude);
 
           const customIcon = L.icon({
-            iconUrl: "/pin-farmacia.png", // Ruta de la imagen del ícono personalizado
+            iconUrl: "./pin-farmacia.png", // Ruta de la imagen del ícono personalizado
             iconSize: [32, 32], // Tamaño del ícono [ancho, alto]
             iconAnchor: [16, 32], // Punto de anclaje del ícono [posiciónX, posiciónY]
           });
@@ -98,7 +98,9 @@ export default defineComponent({
             .addTo(map)
             .bindPopup(pharmacy.name);
 
-          map.flyTo(target, 8, {
+          const targets = L.latLng((pharmacy.latitude - 2), (pharmacy.longitude));
+
+          map.flyTo(targets, 8, {
             duration: 1,
           });
         }, 1000 * pharmacy.index); // Retrasar cada animación para que se produzcan de forma secuencial

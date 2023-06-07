@@ -15,13 +15,13 @@ const data = reactive({
 <template>
   <form
     @submit.prevent="register(data)"
-    class="max-w-md mx-auto p-4 bg-white shadow-md rounded-md container-md"
+    class="max-w-md mx-auto p-4 bg-white shadow-black rounded-md container-md mt-40"
   >
     <h1 class="h3 mb-3 fw-normal">Porfavor Registrese</h1>
 
     <div class="space-y-6">
-      <div v-if="errors">
-        <span class="text-base text-red-400">{{ errors.error }}</span>
+      <div v-if="errors.error">
+        <span class="alerta-error">{{ errors.error }}</span>
       </div>
     
       <label
