@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRouter } from "vue-router";
 import { useStore } from "vuex";
 
-axios.defaults.baseURL = "http://127.0.0.1:8000/api/";
+axios.defaults.baseURL = "https://sea-turtle-app-8css4.ondigitalocean.app/api/";
 
 export default function useAuth() {
   const errors = ref({});

@@ -88,7 +88,7 @@ onMounted(() => {
 const markerPharmacy = async () => {
   try {
     loading.value = true;
-    const { data } = await axios.get("http://127.0.0.1:8000/api/pharmacies");
+    const { data } = await axios.get("https://sea-turtle-app-8css4.ondigitalocean.app/api/pharmacies");
     markerpharmacy.value = data.pharmacies.map((pharmacy) => {
       return {
         id: pharmacy.id,

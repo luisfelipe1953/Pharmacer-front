@@ -2,7 +2,7 @@ import { ref } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
 
-axios.defaults.baseURL = "http://127.0.0.1:8000/api/";
+axios.defaults.baseURL = "https://sea-turtle-app-8css4.ondigitalocean.app/api/";
 
 export default function usePharmacy() {
   const pharmacy = ref([]);
