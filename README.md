@@ -41,5 +41,5 @@ Si deseas contribuir a este proyecto, puedes seguir los siguientes pasos:
 
 Agradecemos todas las contribuciones y sugerencias para mejorar este proyecto.
 
-# Consume la API con su Back Correspondiente
+# Consume la API de su Back Correspondiente
 ### [Repositorio Backend con Laravel](https://github.com/luisfelipe1953/farmacia-api-arquitectura-hexagonal "Repositorio Backend con Laravel")
